@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <IdentityUIFrameworkVersion>Bootstrap3</IdentityUIFrameworkVersion>
+    <UserSecretsId>817fa4f7-5707-42a3-90c9-28ee0ad08016</UserSecretsId>
   </PropertyGroup>  
   
   <ItemGroup>
