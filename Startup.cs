@@ -1,4 +1,5 @@
 using AspNetCoreIdentity.Config;
+using AspNetCoreIdentity.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,16 +22,21 @@ namespace AspNetCoreIdentity
             if (hostEnvironment.IsProduction())
                 builder.AddUserSecrets<Startup>();
 
-                Configuration = builder.Build();
+            Configuration = builder.Build();
         }
         
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddIdentityConfig(Configuration);
-            services.AddAuthorizationConfig();
+            services.AddAuthorizationConfig();           
+
             services.ResolveDependencies();
 
-            services.AddMvc(options => options.EnableEndpointRouting = false);
+            services.AddMvc(options =>
+            {
+                options.EnableEndpointRouting = false;
+                options.Filters.Add(typeof(AuditFilter));
+            });
             services.AddControllersWithViews();
             services.AddRazorPages();
         }

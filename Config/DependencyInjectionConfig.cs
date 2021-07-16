@@ -9,6 +9,7 @@ namespace AspNetCoreIdentity.Config
         public static IServiceCollection ResolveDependencies(this IServiceCollection services)
         {
             services.AddSingleton<IAuthorizationHandler, PermissionRequiredHandler>();
+            services.AddScoped<AuditFilter>();
             return services;
         }
     }

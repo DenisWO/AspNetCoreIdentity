@@ -1,9 +1,11 @@
 ﻿using AspNetCoreIdentity.Areas.Identity.Data;
 using AspNetCoreIdentity.Extensions;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using System;
 
 namespace AspNetCoreIdentity.Config
 {
